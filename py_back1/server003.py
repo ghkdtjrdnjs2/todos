@@ -18,3 +18,11 @@ def nai_result():
     return render_template("nai_result.html", nai=nai)
 
 app.run()
+
+# Http 상태코드
+# 200 - 성공
+# 400 - 잘못된 요청(작업시작X)
+# 403 - 권한없음
+# 404 - not found 파일이 없음
+# 405 - method 오류 (get/post)
+# 500 - 작업중에 오류발생
