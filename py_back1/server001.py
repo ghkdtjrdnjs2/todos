@@ -17,8 +17,7 @@ def hello():
 @app.route("/hello2")
 def insa():
     return "안녕하세요"
-
-@app.route("/hello3")
+ 
 def add():
     # request로 전달받은 값은 무조건 글자 (인터넷의 규칙) 인터넷을 왔다갔다하는건 다 문자다
     val = request.args['val']

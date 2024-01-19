@@ -4,5 +4,7 @@
 # templates - html,         static - css, js
 # get은 querystring방식으로 서버에 값을 전달한다
 
-# get       주소창 127.0.0.1:5000/name?irum=spring&nai=20
-# post      주소창 127.0.0.1:5000/name
+# get       주소창 127.0.0.1:5000/name?irum=spring&nai=20 -> 보인다 querystring
+# post      주소창 127.0.0.1:5000/name(   숨겨져있다   )
+# 이둘의 형식은 urlencoded 형식이고 get은 데이터가 주소창에 나타나는거고 post는 데이터가 보이지않을뿐이다
+
