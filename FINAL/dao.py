@@ -12,9 +12,12 @@ bno = 4
 def findall()->list:
     return board
 
-# def findone():
-#     for b in board:
-#         return
+def findone(bno:int)->dict:
+    for b in board:
+         if b['bno']==bno:
+            return b
+    return None
+    
 
 def save(title:str, nickname:str, content:str)->bool:
     global bno
