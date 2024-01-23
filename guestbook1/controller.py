@@ -19,5 +19,11 @@ def write():
     m.save(content=content)
     return redirect("/")
 
+@app.route("/delete", methods=['post'])
+def delete():
+  gno = request.form.get('gno', type=int)
+  m.delete(gno)
+  return redirect("/")
+
 # # 서버를 개발자 모드(변경하면 자동 재실행)로 실행
 app.run(debug=True)

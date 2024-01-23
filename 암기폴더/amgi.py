@@ -7,7 +7,6 @@
 # controller - 주소제공, 뷰와 모델의 연결
 # 
 # MVC - Model View Controller 
-# guestbook=[]
 # 
 # MVVM - Model View ViewModel
 # 

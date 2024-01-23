@@ -32,7 +32,11 @@
                 <td>{{gb.gno}}</td>
                 <td>{{gb.content}}</td>
                 <td>{{gb.writeday}}</td>
-                <td><button class="btn btn-danger">삭제</button></td>
+                <td>
+                    <form action="/delete" method="post">
+                        <input type="hidden" name="gno" value="{{gb.gno}}">
+                    <button class="btn btn-danger">삭제</button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

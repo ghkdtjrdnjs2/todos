@@ -26,7 +26,10 @@ def save(content:str):
     guestbook.append(gb)
     gno+=1
 
-
+def delete(gno:int):
+  for gb in guestbook:
+    if gb['gno']==gno:
+      guestbook.remove(gb)
 
 # def hap(val1:int, val2:int)->int:
 #     return val1+val2
