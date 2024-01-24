@@ -1,30 +1,42 @@
-import datetime
+# 데이터 : model
+# 모델을 다루는 클래스 : Data Access Object(DAO, 다오)
+board_list=[]
+bno = 1
+# 추가(save), 전체출력(findall), 하나출력(findone), 변경(update), 삭제(delete)
+# 글 : 글번호, 제목, 내용, 닉네임, 조회수
 
-board = []
-board.append(dict(bno=1,title="aa",content="aaa",nickname="spring",readcnt=0))
-board.append(dict(bno=2,title="bb",content="bbb",nickname="spring",readcnt=0))
-board.append(dict(bno=3,title="cc",content="ccc",nickname="spring",readcnt=0))
-b = dict(bno=1, title='title', writeday='writeday', nickname='nickname', content='content' )
-bno = 4
+def save(title:str, content:str, nickname:str)->bool:
+  global bno
+  b = dict(bno=bno,title=title,content=content,nickname=nickname,readcnt=0)
+  board_list.append(b)
+  bno+=1
+  return True
 
+def findall():
+  return board_list
 
-
-def findall()->list:
-    return board
-
+# findone, update, delete는 일단 찾는다
+# findone은 글을 찾아서 출력한다. 따라서 조회수도 증가해야 한다
 def findone(bno:int)->dict:
-    for b in board:
-         if b['bno']==bno:
-            return b
-    return None
-    
+  for board in board_list:
+    if board['bno']==bno:
+      board['readcnt']+=1
+      return board
+  return None
 
-def save(title:str, nickname:str, content:str)->bool:
-    global bno
-    writeday = datetime.datetime.now().date()
-    b = dict(bno=bno, title=title, nickname=nickname, content=content, writeday=writeday, readcnt=0)
-    board.append(b)
-    bno=bno+1
-    return True
+# 변경은 찾아서 제목과 내용을 바꾼다
+def update(bno:int, title:str, content:str)->bool:
+  for board in board_list:
+    if board['bno']==bno:
+      board['title'] = title
+      board['content'] = content
+      return True
+  return False
 
-
+# 삭제
+def delete(bno:int)->bool:
+  for board in board_list:
+    if board['bno']==bno:
+      board_list.remove(board)
+      return True
+  return False
